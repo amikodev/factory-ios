@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2C0F7BC42761E4CA00E4DC3A /* PanZoomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F7BC32761E4CA00E4DC3A /* PanZoomImageView.swift */; };
+		2C2301C12765808C00754B43 /* FreqConverterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2301C02765808C00754B43 /* FreqConverterMainController.swift */; };
+		2C2301C32765BA9800754B43 /* FreqConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2301C22765BA9800754B43 /* FreqConverter.swift */; };
 		2CA11CF3275BFC7400AAADE4 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA11CF2275BFC7400AAADE4 /* Interfaces.swift */; };
 		2CA11CF6275C03AF00AAADE4 /* CncRouter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF5275C03AF00AAADE4 /* CncRouter.storyboard */; };
 		2CA11CF8275C03D300AAADE4 /* Cnc5AxisRouter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF7275C03D300AAADE4 /* Cnc5AxisRouter.storyboard */; };
-		2CA11CFA275C03EB00AAADE4 /* FreqConv.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF9275C03EB00AAADE4 /* FreqConv.storyboard */; };
+		2CA11CFA275C03EB00AAADE4 /* FreqConverter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF9275C03EB00AAADE4 /* FreqConverter.storyboard */; };
 		2CA11D07275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift */; };
 		2CA11D09275C65E700AAADE4 /* EquipmentsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA11D08275C65E700AAADE4 /* EquipmentsTableController.swift */; };
-		2CA629C32762909C00A8CB49 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA629C22762909C00A8CB49 /* AboutController.swift */; };
+		2CA62A0527657D2400A8CB49 /* FreqConverterAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62A0427657D2400A8CB49 /* FreqConverterAddController.swift */; };
+		2CA62A0727657D4500A8CB49 /* CncRouterAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62A0627657D4500A8CB49 /* CncRouterAddController.swift */; };
 		2CAB48CA275B126100482C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48C9275B126100482C6B /* AppDelegate.swift */; };
 		2CAB48CC275B126100482C6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48CB275B126100482C6B /* SceneDelegate.swift */; };
 		2CAB48CE275B126100482C6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48CD275B126100482C6B /* ViewController.swift */; };
@@ -48,14 +51,17 @@
 
 /* Begin PBXFileReference section */
 		2C0F7BC32761E4CA00E4DC3A /* PanZoomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanZoomImageView.swift; sourceTree = "<group>"; };
+		2C2301C02765808C00754B43 /* FreqConverterMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverterMainController.swift; sourceTree = "<group>"; };
+		2C2301C22765BA9800754B43 /* FreqConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverter.swift; sourceTree = "<group>"; };
 		2CA11CF2275BFC7400AAADE4 /* Interfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interfaces.swift; sourceTree = "<group>"; };
 		2CA11CF5275C03AF00AAADE4 /* CncRouter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CncRouter.storyboard; sourceTree = "<group>"; };
 		2CA11CF7275C03D300AAADE4 /* Cnc5AxisRouter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cnc5AxisRouter.storyboard; sourceTree = "<group>"; };
-		2CA11CF9275C03EB00AAADE4 /* FreqConv.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FreqConv.storyboard; sourceTree = "<group>"; };
+		2CA11CF9275C03EB00AAADE4 /* FreqConverter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FreqConverter.storyboard; sourceTree = "<group>"; };
 		2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cnc5AxisRouterAddController.swift; sourceTree = "<group>"; };
 		2CA11D08275C65E700AAADE4 /* EquipmentsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsTableController.swift; sourceTree = "<group>"; };
 		2CA11D0A275D666700AAADE4 /* Factory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Factory.entitlements; sourceTree = "<group>"; };
-		2CA629C22762909C00A8CB49 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
+		2CA62A0427657D2400A8CB49 /* FreqConverterAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverterAddController.swift; sourceTree = "<group>"; };
+		2CA62A0627657D4500A8CB49 /* CncRouterAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CncRouterAddController.swift; sourceTree = "<group>"; };
 		2CAB48C6275B126100482C6B /* Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Factory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAB48C9275B126100482C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAB48CB275B126100482C6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +118,7 @@
 			children = (
 				2CA11CF5275C03AF00AAADE4 /* CncRouter.storyboard */,
 				2CA11CF7275C03D300AAADE4 /* Cnc5AxisRouter.storyboard */,
-				2CA11CF9275C03EB00AAADE4 /* FreqConv.storyboard */,
+				2CA11CF9275C03EB00AAADE4 /* FreqConverter.storyboard */,
 			);
 			path = equipmentStoryboards;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA11D01275C073E00AAADE4 /* ui */,
+				2C2301C22765BA9800754B43 /* FreqConverter.swift */,
 			);
 			path = freqConv;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 		2CA11D00275C073700AAADE4 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				2CA62A0627657D4500A8CB49 /* CncRouterAddController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -169,6 +177,8 @@
 		2CA11D01275C073E00AAADE4 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				2CA62A0427657D2400A8CB49 /* FreqConverterAddController.swift */,
+				2C2301C02765808C00754B43 /* FreqConverterMainController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -211,7 +221,6 @@
 				2CAB48FD275B44AE00482C6B /* Application.swift */,
 				2CAB48FF275B496600482C6B /* MainTabsController.swift */,
 				2CA11CF2275BFC7400AAADE4 /* Interfaces.swift */,
-				2CA629C22762909C00A8CB49 /* AboutController.swift */,
 				2C0F7BC22761E48C00E4DC3A /* lib */,
 			);
 			path = Factory;
@@ -339,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAB48D6275B126300482C6B /* LaunchScreen.storyboard in Resources */,
-				2CA11CFA275C03EB00AAADE4 /* FreqConv.storyboard in Resources */,
+				2CA11CFA275C03EB00AAADE4 /* FreqConverter.storyboard in Resources */,
 				2CA11CF8275C03D300AAADE4 /* Cnc5AxisRouter.storyboard in Resources */,
 				2CAB48D3275B126300482C6B /* Assets.xcassets in Resources */,
 				2CAB48D1275B126100482C6B /* Main.storyboard in Resources */,
@@ -370,15 +379,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C0F7BC42761E4CA00E4DC3A /* PanZoomImageView.swift in Sources */,
+				2CA62A0727657D4500A8CB49 /* CncRouterAddController.swift in Sources */,
 				2CAB48FE275B44AE00482C6B /* Application.swift in Sources */,
 				2CA11D09275C65E700AAADE4 /* EquipmentsTableController.swift in Sources */,
 				2CA11D07275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift in Sources */,
-				2CA629C32762909C00A8CB49 /* AboutController.swift in Sources */,
+				2C2301C12765808C00754B43 /* FreqConverterMainController.swift in Sources */,
 				2CAB48CE275B126100482C6B /* ViewController.swift in Sources */,
 				2CAB48CA275B126100482C6B /* AppDelegate.swift in Sources */,
 				2CAB48CC275B126100482C6B /* SceneDelegate.swift in Sources */,
 				2CA11CF3275BFC7400AAADE4 /* Interfaces.swift in Sources */,
 				2CAB4900275B496600482C6B /* MainTabsController.swift in Sources */,
+				2C2301C32765BA9800754B43 /* FreqConverter.swift in Sources */,
+				2CA62A0527657D2400A8CB49 /* FreqConverterAddController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +570,7 @@
 				CODE_SIGN_ENTITLEMENTS = Factory/Factory.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 65A78RWS8K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Factory/Info.plist;
@@ -568,6 +580,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -590,7 +603,7 @@
 				CODE_SIGN_ENTITLEMENTS = Factory/Factory.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 65A78RWS8K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Factory/Info.plist;
@@ -600,6 +613,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

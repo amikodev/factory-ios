@@ -18,11 +18,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
-class Cnc5AxisRouterAddController: UIViewController, IAddEquipment {
+class CncRouterAddController: UIViewController, IAddEquipment {
 
     @IBOutlet weak var caption: UITextField!
     @IBOutlet weak var url: UITextField!
     @IBOutlet weak var wsEnabled: UISwitch!
+    
+    @IBOutlet weak var sizeX: UITextField!
+    @IBOutlet weak var sizeY: UITextField!
+    @IBOutlet weak var sizeZ: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +36,21 @@ class Cnc5AxisRouterAddController: UIViewController, IAddEquipment {
 
     @IBAction func createClick(_ sender: UIButton) {
         
-        let equipment = EquipmentCnc5AxisRouter()
-        equipment.type = EquipmentType.Cnc5AxisRouter
+        let equipment = EquipmentCncRouter()
+        equipment.type = EquipmentType.CncRouter
         equipment.name = ""
         equipment.caption = caption.text!
         equipment.url = url.text!
         equipment.wsEnabled = wsEnabled.isOn
-        
+        equipment.x = (sizeX.text! as NSString).floatValue
+        equipment.y = (sizeY.text! as NSString).floatValue
+        equipment.z = (sizeZ.text! as NSString).floatValue
+
         Application.app.addEquipment(jsonData: try! JSONEncoder().encode(equipment))
 
         self.navigationController?.popToRootViewController(animated: true)
         
     }
-    
+
+
 }

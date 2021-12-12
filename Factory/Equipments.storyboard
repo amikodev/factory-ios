@@ -85,7 +85,7 @@
         <!--Freq Converter-->
         <scene sceneID="9gQ-hx-pw7">
             <objects>
-                <viewController id="cHc-JK-gD3" sceneMemberID="viewController">
+                <viewController id="cHc-JK-gD3" customClass="FreqConverterAddController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vFb-bv-6Kk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,6 +117,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Create"/>
                                         <connections>
+                                            <action selector="createClick:" destination="cHc-JK-gD3" eventType="touchUpInside" id="JhW-Sb-gg8"/>
                                             <action selector="createClick:" destination="qgV-OE-6AR" eventType="touchUpInside" id="xYt-dn-wLe"/>
                                         </connections>
                                     </button>
@@ -124,7 +125,7 @@
                                         <rect key="frame" x="0.0" y="8" width="374" height="34"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -134,6 +135,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Freq Converter" id="AXm-fs-7hY"/>
+                    <connections>
+                        <outlet property="caption" destination="sWy-gh-MsJ" id="cT4-ic-ZV3"/>
+                        <outlet property="url" destination="dZQ-1P-9c2" id="sGt-bd-r2k"/>
+                        <outlet property="wsEnabled" destination="1XO-Fl-myC" id="z7m-L8-pdI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kr-8v-zOs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,7 +168,7 @@
         <!--CNC Router-->
         <scene sceneID="hBg-mb-sin">
             <objects>
-                <viewController id="XiB-eg-45e" sceneMemberID="viewController">
+                <viewController id="XiB-eg-45e" customClass="CncRouterAddController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QFx-iF-f7N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,13 +208,14 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Create"/>
                                         <connections>
                                             <action selector="createClick:" destination="qgV-OE-6AR" eventType="touchUpInside" id="BgR-GB-nvc"/>
+                                            <action selector="createClick:" destination="XiB-eg-45e" eventType="touchUpInside" id="GH3-nu-TzE"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K8X-kJ-gEu">
                                         <rect key="frame" x="0.0" y="8" width="374" height="34"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="wsEnabled" translatesAutoresizingMaskIntoConstraints="NO" id="Q5M-gR-sTc">
                                         <rect key="frame" x="0.0" y="134" width="49" height="31"/>
@@ -229,6 +236,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="CNC Router" id="BZC-ts-mL7"/>
+                    <connections>
+                        <outlet property="caption" destination="K8X-kJ-gEu" id="Tjz-Yp-GK8"/>
+                        <outlet property="sizeX" destination="S6D-o5-pFk" id="AIm-dp-EoU"/>
+                        <outlet property="sizeY" destination="WQo-JE-uOS" id="XPG-pL-bg5"/>
+                        <outlet property="sizeZ" destination="sOm-di-FC1" id="xHj-dC-PdG"/>
+                        <outlet property="url" destination="90F-EF-8u2" id="aDb-FU-Yz8"/>
+                        <outlet property="wsEnabled" destination="Q5M-gR-sTc" id="5Ra-S2-Tcb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L57-74-g05" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,7 +376,7 @@
                                         <rect key="frame" x="0.0" y="8" width="374" height="34"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

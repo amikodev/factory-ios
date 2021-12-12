@@ -18,7 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
-class Cnc5AxisRouterAddController: UIViewController, IAddEquipment {
+class FreqConverterAddController: UIViewController, IAddEquipment {
 
     @IBOutlet weak var caption: UITextField!
     @IBOutlet weak var url: UITextField!
@@ -31,8 +31,8 @@ class Cnc5AxisRouterAddController: UIViewController, IAddEquipment {
 
     @IBAction func createClick(_ sender: UIButton) {
         
-        let equipment = EquipmentCnc5AxisRouter()
-        equipment.type = EquipmentType.Cnc5AxisRouter
+        let equipment = EquipmentFreqConverter()
+        equipment.type = EquipmentType.FreqConverter
         equipment.name = ""
         equipment.caption = caption.text!
         equipment.url = url.text!
@@ -43,5 +43,6 @@ class Cnc5AxisRouterAddController: UIViewController, IAddEquipment {
         self.navigationController?.popToRootViewController(animated: true)
         
     }
-    
+
+
 }
