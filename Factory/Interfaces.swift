@@ -104,7 +104,9 @@ protocol EquipmentDevice{
 }
 
 class UIEquipmentDeviceViewController: UIViewController{
-    
+
+    @IBOutlet weak var WebSocketStatusView: UIView!
+
     var _equipmentDict: [String: Any]?
 
     override func viewDidLoad() {

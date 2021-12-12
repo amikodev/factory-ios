@@ -31,6 +31,8 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
 
         _equipment.setFrom(dict: _equipmentDict!)
         _equipmentDevice = FreqConverter(equipment: _equipment)
+        
+//        WebSocketStatusView.backgroundColor = .systemGreen
 
     }
     
@@ -60,9 +62,16 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     @IBAction func FreqSliderChange(_ sender: UISlider) {
         let freq: Int = Int(sender.value)
         
-        _equipmentDevice?.setFreq(value: freq)
-        
         FreqText.text = String(freq)
+        FreqText.backgroundColor = .systemBrown
+    }
+    
+    @IBAction func FreqSliderChangeEnd(_ sender: UISlider) {
+        let freq: Int = Int(sender.value)
+        
+        FreqText.backgroundColor = .clear
+        
+        _equipmentDevice?.setFreq(value: freq)
     }
     
     /*
