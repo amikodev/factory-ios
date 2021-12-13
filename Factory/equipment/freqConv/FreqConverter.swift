@@ -23,7 +23,7 @@ import Foundation
  */
 class FreqConverter: EquipmentDevice{
     
-    private var _equipment: EquipmentFreqConverter
+    private var _equipment: EquipmentDict
     private var _freq: Int = 0
     
     static let OBJ_NAME_DEVICE = 0x50
@@ -38,7 +38,7 @@ class FreqConverter: EquipmentDevice{
     static let ENGINE_STATE_STOP = 0x02
 
     
-    init(equipment: EquipmentFreqConverter){
+    init(equipment: EquipmentDict){
         
         _equipment = equipment
         _freq = 0

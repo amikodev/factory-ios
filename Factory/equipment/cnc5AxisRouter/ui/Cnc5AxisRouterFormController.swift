@@ -18,30 +18,52 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
-class Cnc5AxisRouterAddController: UIViewController, IAddEquipment {
+class Cnc5AxisRouterFormController: UIViewController, IAddEquipment, IUpdateEquipment {
 
     @IBOutlet weak var caption: UITextField!
     @IBOutlet weak var url: UITextField!
     @IBOutlet weak var wsEnabled: UISwitch!
+    
+    private var _equipment: EquipmentDict = EquipmentDict()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
+    func setEquipment(dict: EquipmentDict){
+        _equipment = dict
+        
+        print("setEquipment", _equipment)
+    }
+
     @IBAction func createClick(_ sender: UIButton) {
         
-        let equipment = EquipmentCnc5AxisRouter()
-        equipment.type = EquipmentType.Cnc5AxisRouter
-        equipment.name = ""
-        equipment.caption = caption.text!
-        equipment.url = url.text!
-        equipment.wsEnabled = wsEnabled.isOn
+        var equipmentDict: EquipmentDict = EquipmentDict()
+        equipmentDict["type"] = "FreqConverter"
+        equipmentDict["name"] = ""
+        equipmentDict["caption"] = caption.text!
+        equipmentDict["url"] = url.text!
+        equipmentDict["wsEnabled"] = wsEnabled.isOn
+        Application.app.addEquipment(data: equipmentDict)
         
-        Application.app.addEquipment(jsonData: try! JSONEncoder().encode(equipment))
+
+        
+//        let equipment = EquipmentCnc5AxisRouter()
+//        equipment.type = EquipmentType.Cnc5AxisRouter
+//        equipment.name = ""
+//        equipment.caption = caption.text!
+//        equipment.url = url.text!
+//        equipment.wsEnabled = wsEnabled.isOn
+//        
+//        Application.app.addEquipment(jsonData: try! JSONEncoder().encode(equipment))
 
         self.navigationController?.popToRootViewController(animated: true)
         
     }
     
+    @IBAction func saveClick(_ sender: UIButton){
+        
+    }
+
 }

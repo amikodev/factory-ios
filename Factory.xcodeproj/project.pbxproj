@@ -16,10 +16,10 @@
 		2CA11CF6275C03AF00AAADE4 /* CncRouter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF5275C03AF00AAADE4 /* CncRouter.storyboard */; };
 		2CA11CF8275C03D300AAADE4 /* Cnc5AxisRouter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF7275C03D300AAADE4 /* Cnc5AxisRouter.storyboard */; };
 		2CA11CFA275C03EB00AAADE4 /* FreqConverter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF9275C03EB00AAADE4 /* FreqConverter.storyboard */; };
-		2CA11D07275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift */; };
+		2CA11D07275C2FB900AAADE4 /* Cnc5AxisRouterFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterFormController.swift */; };
 		2CA11D09275C65E700AAADE4 /* EquipmentsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA11D08275C65E700AAADE4 /* EquipmentsTableController.swift */; };
-		2CA62A0527657D2400A8CB49 /* FreqConverterAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62A0427657D2400A8CB49 /* FreqConverterAddController.swift */; };
-		2CA62A0727657D4500A8CB49 /* CncRouterAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62A0627657D4500A8CB49 /* CncRouterAddController.swift */; };
+		2CA62A0527657D2400A8CB49 /* FreqConverterFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62A0427657D2400A8CB49 /* FreqConverterFormController.swift */; };
+		2CA62A0727657D4500A8CB49 /* CncRouterFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62A0627657D4500A8CB49 /* CncRouterFormController.swift */; };
 		2CAB48CA275B126100482C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48C9275B126100482C6B /* AppDelegate.swift */; };
 		2CAB48CC275B126100482C6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48CB275B126100482C6B /* SceneDelegate.swift */; };
 		2CAB48CE275B126100482C6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48CD275B126100482C6B /* ViewController.swift */; };
@@ -67,11 +67,11 @@
 		2CA11CF5275C03AF00AAADE4 /* CncRouter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CncRouter.storyboard; sourceTree = "<group>"; };
 		2CA11CF7275C03D300AAADE4 /* Cnc5AxisRouter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cnc5AxisRouter.storyboard; sourceTree = "<group>"; };
 		2CA11CF9275C03EB00AAADE4 /* FreqConverter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FreqConverter.storyboard; sourceTree = "<group>"; };
-		2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cnc5AxisRouterAddController.swift; sourceTree = "<group>"; };
+		2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cnc5AxisRouterFormController.swift; sourceTree = "<group>"; };
 		2CA11D08275C65E700AAADE4 /* EquipmentsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsTableController.swift; sourceTree = "<group>"; };
 		2CA11D0A275D666700AAADE4 /* Factory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Factory.entitlements; sourceTree = "<group>"; };
-		2CA62A0427657D2400A8CB49 /* FreqConverterAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverterAddController.swift; sourceTree = "<group>"; };
-		2CA62A0627657D4500A8CB49 /* CncRouterAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CncRouterAddController.swift; sourceTree = "<group>"; };
+		2CA62A0427657D2400A8CB49 /* FreqConverterFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverterFormController.swift; sourceTree = "<group>"; };
+		2CA62A0627657D4500A8CB49 /* CncRouterFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CncRouterFormController.swift; sourceTree = "<group>"; };
 		2CAB48C6275B126100482C6B /* Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Factory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAB48C9275B126100482C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAB48CB275B126100482C6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		2CA11CFF275C072E00AAADE4 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift */,
+				2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterFormController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 		2CA11D00275C073700AAADE4 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				2CA62A0627657D4500A8CB49 /* CncRouterAddController.swift */,
+				2CA62A0627657D4500A8CB49 /* CncRouterFormController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 		2CA11D01275C073E00AAADE4 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				2CA62A0427657D2400A8CB49 /* FreqConverterAddController.swift */,
+				2CA62A0427657D2400A8CB49 /* FreqConverterFormController.swift */,
 				2C2301C02765808C00754B43 /* FreqConverterMainController.swift */,
 			);
 			path = ui;
@@ -535,10 +535,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C0F7BC42761E4CA00E4DC3A /* PanZoomImageView.swift in Sources */,
-				2CA62A0727657D4500A8CB49 /* CncRouterAddController.swift in Sources */,
+				2CA62A0727657D4500A8CB49 /* CncRouterFormController.swift in Sources */,
 				2CAB48FE275B44AE00482C6B /* Application.swift in Sources */,
 				2CA11D09275C65E700AAADE4 /* EquipmentsTableController.swift in Sources */,
-				2CA11D07275C2FB900AAADE4 /* Cnc5AxisRouterAddController.swift in Sources */,
+				2CA11D07275C2FB900AAADE4 /* Cnc5AxisRouterFormController.swift in Sources */,
 				2C2301C12765808C00754B43 /* FreqConverterMainController.swift in Sources */,
 				2CAB48CE275B126100482C6B /* ViewController.swift in Sources */,
 				2CAB48CA275B126100482C6B /* AppDelegate.swift in Sources */,
@@ -546,7 +546,7 @@
 				2CA11CF3275BFC7400AAADE4 /* Interfaces.swift in Sources */,
 				2CAB4900275B496600482C6B /* MainTabsController.swift in Sources */,
 				2C2301C32765BA9800754B43 /* FreqConverter.swift in Sources */,
-				2CA62A0527657D2400A8CB49 /* FreqConverterAddController.swift in Sources */,
+				2CA62A0527657D2400A8CB49 /* FreqConverterFormController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

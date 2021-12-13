@@ -63,7 +63,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4C-6g-foG">
-                                <rect key="frame" x="228" y="100" width="160" height="60"/>
+                                <rect key="frame" x="226" y="100" width="160" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Stop Engine"/>
@@ -276,7 +276,7 @@
                     <navigationItem key="navigationItem" title="Title" id="MFb-bL-GJ5">
                         <barButtonItem key="leftBarButtonItem" image="line.3.horizontal" catalog="system" id="McH-s1-m4d">
                             <connections>
-                                <segue destination="uMk-sc-GDa" kind="presentation" id="Qkr-Cg-Fkx"/>
+                                <segue destination="uMk-sc-GDa" kind="presentation" identifier="menu" id="Qkr-Cg-Fkx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -290,21 +290,72 @@
             </objects>
             <point key="canvasLocation" x="876.81159420289862" y="861.83035714285711"/>
         </scene>
-        <!--FreqConverter Menu-->
+        <!--Menu-->
         <scene sceneID="rzL-S4-vCA">
             <objects>
-                <viewController id="UHx-p6-pJa" sceneMemberID="viewController">
+                <viewController id="UHx-p6-pJa" customClass="FreqConverterFormController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vRf-6t-bhj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-bA-p44">
+                                <rect key="frame" x="0.0" y="88" width="414" height="5"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUt-Ap-04d">
+                                <rect key="frame" x="20" y="101" width="374" height="177"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="WebSocket Url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GVO-Sd-vcX">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
+                                    </textField>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="wsEnabled" translatesAutoresizingMaskIntoConstraints="NO" id="swz-pt-yVM">
+                                        <rect key="frame" x="0.0" y="92" width="49" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WebSocket enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvn-DC-kFm">
+                                        <rect key="frame" x="55" y="97" width="153" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RGW-Fo-Qbc">
+                                        <rect key="frame" x="0.0" y="8" width="374" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSJ-Is-9DV">
+                                        <rect key="frame" x="0.0" y="138" width="120" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                        <connections>
+                                            <action selector="saveClick:" destination="UHx-p6-pJa" eventType="touchUpInside" id="aKB-du-09M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="XIL-Ig-JRo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="FreqConverter Menu" id="cJF-wz-xn6"/>
+                    <navigationItem key="navigationItem" title="Menu" id="cJF-wz-xn6"/>
+                    <connections>
+                        <outlet property="caption" destination="RGW-Fo-Qbc" id="ekl-ca-yEq"/>
+                        <outlet property="url" destination="GVO-Sd-vcX" id="gwz-8x-JZ0"/>
+                        <outlet property="wsEnabled" destination="swz-pt-yVM" id="bz2-Io-yE4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMm-tQ-u8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="862"/>
+            <point key="canvasLocation" x="1889.8550724637682" y="861.83035714285711"/>
         </scene>
     </scenes>
     <resources>

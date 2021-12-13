@@ -34,7 +34,7 @@ class MainTabsController: UITabBarController, IMainTabs {
         
     }
     
-    func setEquipmentTab(equipmentDict: [String: Any]){
+    func setEquipmentTab(equipmentDict: EquipmentDict){
         
         let type = equipmentDict["type"] as? String ?? ""
         let caption: String = equipmentDict["caption"] as? String ?? ""

@@ -17,24 +17,38 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 import UIKit
+import SideMenu
 
 class FreqConverterMainController: UIEquipmentDeviceViewController {
 
     @IBOutlet weak var FreqText: UITextField!
     @IBOutlet weak var FreqSlider: UISlider!
     
-    private var _equipment: EquipmentFreqConverter = EquipmentFreqConverter()
     private var _equipmentDevice: FreqConverter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _equipment.setFrom(dict: _equipmentDict!)
-        _equipmentDevice = FreqConverter(equipment: _equipment)
+        _equipmentDevice = FreqConverter(equipment: _equipmentDict!)
         
 //        WebSocketStatusView.backgroundColor = .systemGreen
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // start listeners
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // stop listeners
+        
+    }
+    
     
 
     @IBAction func StartEngineClick(_ sender: UIButton) {
@@ -74,14 +88,19 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
         _equipmentDevice?.setFreq(value: freq)
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "menu"){
+            if(segue.destination is SideMenuNavigationController && segue.destination.children[0] is IUpdateEquipment){
+                let updateEquipmentViewController: IUpdateEquipment = (segue.destination.children[0] as? IUpdateEquipment)!
+                updateEquipmentViewController.setEquipment(dict: _equipmentDict!)
+            }
+        }
+        
     }
-    */
 
 }

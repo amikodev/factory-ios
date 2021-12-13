@@ -24,7 +24,7 @@ class Application{
     public static var app = Application()
     
     private var _mainTabs: IMainTabs!
-    private var _equipments: [[String: Any]] = []
+    private var _equipments: [EquipmentDict] = []
     
     init(){
         
@@ -36,11 +36,11 @@ class Application{
         _mainTabs = tabs
     }
     
-    func setEquipmentTab(equipmentDict: [String: Any]){
+    func setEquipmentTab(equipmentDict: EquipmentDict){
         _mainTabs.setEquipmentTab(equipmentDict: equipmentDict)
     }
     
-    func getEquipments() -> [[String: Any]] {
+    func getEquipments() -> [EquipmentDict] {
         return _equipments
     }
     
@@ -56,16 +56,12 @@ class Application{
         }
 
         eqs?.forEach {el in
-            let jsonStr = String(data: el as! Data, encoding: .utf8)
-            let jsonData = jsonStr?.data(using: .utf8)
-            
-            let dict: [String: Any] = try! (JSONSerialization.jsonObject(with: jsonData!, options: []) as? [String: Any])!
-            _equipments.append(dict)
+            _equipments.append((el as? EquipmentDict)!)
         }
-
+        
     }
     
-    func addEquipment(jsonData: Data){
+    func addEquipment(data: EquipmentDict){
         let defaults = UserDefaults.standard
         
         var eqs = defaults.array(forKey: STORAGE_EQUIPMENTS)
@@ -73,7 +69,30 @@ class Application{
             eqs = []
         }
 
-        eqs?.append(jsonData)
+        eqs?.append(data)
+
+        defaults.set(eqs, forKey: STORAGE_EQUIPMENTS)
+        updateEquipments()
+
+    }
+    
+    func saveEquipment(data: EquipmentDict){
+        let defaults = UserDefaults.standard
+        
+        var eqs = defaults.array(forKey: STORAGE_EQUIPMENTS)
+        if(eqs == nil){
+            eqs = []
+        }
+        
+        eqs = eqs?.map { el in
+            let e: EquipmentDict = (el as? EquipmentDict)!
+            let u1 = e["uuid"] as? String
+            let u2 = data["uuid"] as? String
+            if(u1 == u2){
+                return data
+            }
+            return el
+        }
 
         defaults.set(eqs, forKey: STORAGE_EQUIPMENTS)
         updateEquipments()

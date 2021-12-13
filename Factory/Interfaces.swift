@@ -32,72 +32,20 @@ protocol IAddEquipment{
 
 }
 
+protocol IUpdateEquipment{
+    
+    func saveClick(_ sender: UIButton)
+    func setEquipment(dict: EquipmentDict)
+    
+}
+
 enum EquipmentType: String, Codable{
     case FreqConverter, CncRouter, Cnc5AxisRouter
 }
 
-protocol Equipment: Codable{
-    var type: EquipmentType {get set}
-    var name: String {get set}
-    var caption: String {get set}
-    var url: String {get set}
-    var wsEnabled: Bool {get set}
-    
-    func setFrom(dict: [String: Any])
-}
+typealias EquipmentDict = [String: Any]
 
-class EquipmentFreqConverter: Equipment, Codable{
-    var type: EquipmentType = EquipmentType.FreqConverter
-    var name: String = ""
-    var caption: String = ""
-    var url: String = ""
-    var wsEnabled: Bool = false
 
-    func setFrom(dict: [String: Any]){
-        name = dict["name"] as! String
-        caption = dict["caption"] as! String
-        url = dict["url"] as! String
-        wsEnabled = dict["wsEnabled"] as! Bool
-    }
-}
-
-class EquipmentCncRouter: Equipment, Codable{
-    var type: EquipmentType = EquipmentType.FreqConverter
-    var name: String = ""
-    var caption: String = ""
-    var url: String = ""
-    var wsEnabled: Bool = false
-
-    var x: Float = 0.0
-    var y: Float = 0.0
-    var z: Float = 0.0
-
-    func setFrom(dict: [String: Any]){
-        name = dict["name"] as! String
-        caption = dict["caption"] as! String
-        url = dict["url"] as! String
-        wsEnabled = dict["wsEnabled"] as! Bool
-        
-        x = dict["x"] as! Float
-        y = dict["y"] as! Float
-        z = dict["z"] as! Float
-    }
-}
-
-class EquipmentCnc5AxisRouter: Equipment, Codable{
-    var type: EquipmentType = EquipmentType.FreqConverter
-    var name: String = ""
-    var caption: String = ""
-    var url: String = ""
-    var wsEnabled: Bool = false
-
-    func setFrom(dict: [String: Any]){
-        name = dict["name"] as! String
-        caption = dict["caption"] as! String
-        url = dict["url"] as! String
-        wsEnabled = dict["wsEnabled"] as! Bool
-    }
-}
 
 protocol EquipmentDevice{
     
@@ -107,14 +55,14 @@ class UIEquipmentDeviceViewController: UIViewController{
 
     @IBOutlet weak var WebSocketStatusView: UIView!
 
-    var _equipmentDict: [String: Any]?
+    var _equipmentDict: EquipmentDict?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    func setEquipment(dict: [String: Any]){
+    func setEquipment(dict: EquipmentDict){
         _equipmentDict = dict
     }
     
