@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2C0F7BC42761E4CA00E4DC3A /* PanZoomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F7BC32761E4CA00E4DC3A /* PanZoomImageView.swift */; };
+		2C18873C276E66C50075C7EA /* CncRouterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C18873B276E66C50075C7EA /* CncRouterMainController.swift */; };
+		2C18873E276E66F30075C7EA /* Cnc5AxisRouterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C18873D276E66F30075C7EA /* Cnc5AxisRouterMainController.swift */; };
 		2C2301C12765808C00754B43 /* FreqConverterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2301C02765808C00754B43 /* FreqConverterMainController.swift */; };
 		2C2301C32765BA9800754B43 /* FreqConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2301C22765BA9800754B43 /* FreqConverter.swift */; };
 		2C4A69F82765F05700A00AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A69F72765F05700A00AE7 /* README.md */; };
 		2C4A69FA2765F31800A00AE7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A69F92765F31800A00AE7 /* Podfile */; };
+		2C4AFE94276A5DAC0010E3F7 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AFE93276A5DAC0010E3F7 /* Counter.swift */; };
+		2C4AFE96276A5E8D0010E3F7 /* CurrentEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AFE95276A5E8D0010E3F7 /* CurrentEquipment.swift */; };
 		2CA11CF3275BFC7400AAADE4 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA11CF2275BFC7400AAADE4 /* Interfaces.swift */; };
 		2CA11CF6275C03AF00AAADE4 /* CncRouter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF5275C03AF00AAADE4 /* CncRouter.storyboard */; };
 		2CA11CF8275C03D300AAADE4 /* Cnc5AxisRouter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA11CF7275C03D300AAADE4 /* Cnc5AxisRouter.storyboard */; };
@@ -33,6 +37,7 @@
 		2CAB48FE275B44AE00482C6B /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48FD275B44AE00482C6B /* Application.swift */; };
 		2CAB4900275B496600482C6B /* MainTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48FF275B496600482C6B /* MainTabsController.swift */; };
 		2CAF4B732766122D00EBF4A1 /* Pods_Factory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C092C4179531384703649 /* Pods_Factory.framework */; };
+		2CB3A55A2768DB09002AC5B5 /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3A5592768DB08002AC5B5 /* Redux.swift */; };
 		E47D307B86ACE9171FBA05F8 /* Pods_Factory_FactoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F79F6AD4B2561F3A63B6F8 /* Pods_Factory_FactoryUITests.framework */; };
 		F4EF89946B8607C5EC52D5AF /* Pods_FactoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E5BB4FB583201F235CCC49 /* Pods_FactoryTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,10 +64,14 @@
 		0D69C585D47D110FB634FC0B /* Pods-FactoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactoryTests.debug.xcconfig"; path = "Target Support Files/Pods-FactoryTests/Pods-FactoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		171C092C4179531384703649 /* Pods_Factory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Factory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C0F7BC32761E4CA00E4DC3A /* PanZoomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanZoomImageView.swift; sourceTree = "<group>"; };
+		2C18873B276E66C50075C7EA /* CncRouterMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CncRouterMainController.swift; sourceTree = "<group>"; };
+		2C18873D276E66F30075C7EA /* Cnc5AxisRouterMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cnc5AxisRouterMainController.swift; sourceTree = "<group>"; };
 		2C2301C02765808C00754B43 /* FreqConverterMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverterMainController.swift; sourceTree = "<group>"; };
 		2C2301C22765BA9800754B43 /* FreqConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverter.swift; sourceTree = "<group>"; };
 		2C4A69F72765F05700A00AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2C4A69F92765F31800A00AE7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		2C4AFE93276A5DAC0010E3F7 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		2C4AFE95276A5E8D0010E3F7 /* CurrentEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentEquipment.swift; sourceTree = "<group>"; };
 		2CA11CF2275BFC7400AAADE4 /* Interfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interfaces.swift; sourceTree = "<group>"; };
 		2CA11CF5275C03AF00AAADE4 /* CncRouter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CncRouter.storyboard; sourceTree = "<group>"; };
 		2CA11CF7275C03D300AAADE4 /* Cnc5AxisRouter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cnc5AxisRouter.storyboard; sourceTree = "<group>"; };
@@ -88,6 +97,7 @@
 		2CAB48F9275B2ABC00482C6B /* Equipments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Equipments.storyboard; sourceTree = "<group>"; };
 		2CAB48FD275B44AE00482C6B /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		2CAB48FF275B496600482C6B /* MainTabsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabsController.swift; sourceTree = "<group>"; };
+		2CB3A5592768DB08002AC5B5 /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
 		2CF25EDA6AD4958F8F33E93A /* Pods-Factory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Factory.debug.xcconfig"; path = "Target Support Files/Pods-Factory/Pods-Factory.debug.xcconfig"; sourceTree = "<group>"; };
 		31E5BB4FB583201F235CCC49 /* Pods_FactoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FactoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE6E2BE4EB54890ADCF2C1D /* Pods-FactoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactoryTests.release.xcconfig"; path = "Target Support Files/Pods-FactoryTests/Pods-FactoryTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA11D06275C2FB900AAADE4 /* Cnc5AxisRouterFormController.swift */,
+				2C18873D276E66F30075C7EA /* Cnc5AxisRouterMainController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -189,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA62A0627657D4500A8CB49 /* CncRouterFormController.swift */,
+				2C18873B276E66C50075C7EA /* CncRouterMainController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -232,6 +244,7 @@
 				2CA11D0A275D666700AAADE4 /* Factory.entitlements */,
 				2CA11CFB275C055900AAADE4 /* equipment */,
 				2CA11CF4275C035400AAADE4 /* equipmentStoryboards */,
+				2CB3A55B276A5D15002AC5B5 /* redux */,
 				2CAB48C9275B126100482C6B /* AppDelegate.swift */,
 				2CAB48CB275B126100482C6B /* SceneDelegate.swift */,
 				2CAB48CD275B126100482C6B /* ViewController.swift */,
@@ -240,10 +253,10 @@
 				2CAB48D2275B126300482C6B /* Assets.xcassets */,
 				2CAB48D4275B126300482C6B /* LaunchScreen.storyboard */,
 				2CAB48D7275B126300482C6B /* Info.plist */,
-				2CA11D08275C65E700AAADE4 /* EquipmentsTableController.swift */,
 				2CAB48FD275B44AE00482C6B /* Application.swift */,
-				2CAB48FF275B496600482C6B /* MainTabsController.swift */,
 				2CA11CF2275BFC7400AAADE4 /* Interfaces.swift */,
+				2CA11D08275C65E700AAADE4 /* EquipmentsTableController.swift */,
+				2CAB48FF275B496600482C6B /* MainTabsController.swift */,
 				2C0F7BC22761E48C00E4DC3A /* lib */,
 			);
 			path = Factory;
@@ -264,6 +277,16 @@
 				2CAB48EC275B126300482C6B /* FactoryUITestsLaunchTests.swift */,
 			);
 			path = FactoryUITests;
+			sourceTree = "<group>";
+		};
+		2CB3A55B276A5D15002AC5B5 /* redux */ = {
+			isa = PBXGroup;
+			children = (
+				2CB3A5592768DB08002AC5B5 /* Redux.swift */,
+				2C4AFE93276A5DAC0010E3F7 /* Counter.swift */,
+				2C4AFE95276A5E8D0010E3F7 /* CurrentEquipment.swift */,
+			);
+			path = redux;
 			sourceTree = "<group>";
 		};
 		D0D7628EA9A1330C50125D10 /* Pods */ = {
@@ -536,14 +559,19 @@
 			files = (
 				2C0F7BC42761E4CA00E4DC3A /* PanZoomImageView.swift in Sources */,
 				2CA62A0727657D4500A8CB49 /* CncRouterFormController.swift in Sources */,
+				2CB3A55A2768DB09002AC5B5 /* Redux.swift in Sources */,
 				2CAB48FE275B44AE00482C6B /* Application.swift in Sources */,
 				2CA11D09275C65E700AAADE4 /* EquipmentsTableController.swift in Sources */,
+				2C4AFE94276A5DAC0010E3F7 /* Counter.swift in Sources */,
 				2CA11D07275C2FB900AAADE4 /* Cnc5AxisRouterFormController.swift in Sources */,
+				2C18873E276E66F30075C7EA /* Cnc5AxisRouterMainController.swift in Sources */,
 				2C2301C12765808C00754B43 /* FreqConverterMainController.swift in Sources */,
 				2CAB48CE275B126100482C6B /* ViewController.swift in Sources */,
 				2CAB48CA275B126100482C6B /* AppDelegate.swift in Sources */,
 				2CAB48CC275B126100482C6B /* SceneDelegate.swift in Sources */,
 				2CA11CF3275BFC7400AAADE4 /* Interfaces.swift in Sources */,
+				2C4AFE96276A5E8D0010E3F7 /* CurrentEquipment.swift in Sources */,
+				2C18873C276E66C50075C7EA /* CncRouterMainController.swift in Sources */,
 				2CAB4900275B496600482C6B /* MainTabsController.swift in Sources */,
 				2C2301C32765BA9800754B43 /* FreqConverter.swift in Sources */,
 				2CA62A0527657D2400A8CB49 /* FreqConverterFormController.swift in Sources */,

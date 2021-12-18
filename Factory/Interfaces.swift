@@ -18,6 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
 import UIKit
+import Combine
 
 let STORAGE_EQUIPMENTS = "Equipments"
 
@@ -26,21 +27,22 @@ protocol IMainTabs{
 }
 
 
-protocol IAddEquipment{
+protocol IUIAddEquipment{
     
     func createClick(_ sender: UIButton)
 
 }
 
-protocol IUpdateEquipment{
+protocol IUIUpdateEquipment{
     
     func saveClick(_ sender: UIButton)
-    func setEquipment(dict: EquipmentDict)
     
 }
 
-enum EquipmentType: String, Codable{
-    case FreqConverter, CncRouter, Cnc5AxisRouter
+enum EquipmentType: String{
+    case FreqConverter
+    case CncRouter
+    case Cnc5AxisRouter
 }
 
 typealias EquipmentDict = [String: Any]
@@ -57,15 +59,143 @@ class UIEquipmentDeviceViewController: UIViewController{
 
     var _equipmentDict: EquipmentDict?
 
+    private var stream: AnyCancellable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    func setEquipment(dict: EquipmentDict){
-        _equipmentDict = dict
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // start listeners
+        
+        stream = store.$state.sink {state in
+            let equipmentDict: EquipmentDict = state.currentEquipmentDict.equipmentDict
+            if(!equipmentDict.isEmpty){
+                self._equipmentDict = equipmentDict
+            }
+            self.navigationItem.title = equipmentDict["caption"] as? String
+        }
+
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // stop listeners
+        
+        store.dispatch(CurrentEquipmentAction.change(dict: _equipmentDict!))
+        
+        stream?.cancel()
+        
+    }
+    
+}
+
+
+protocol IEquipmentForm{
+    
+//    func setEquipment(dict: EquipmentDict)
+    func create(dict: inout EquipmentDict)
+    func save(dict: inout EquipmentDict)
+    
+}
+
+class UIEquipmentFormController: UIViewController, IEquipmentForm{
+    
+    @IBOutlet weak var caption: UITextField!
+    @IBOutlet weak var url: UITextField!
+    @IBOutlet weak var wsEnabled: UISwitch!
+    
+    var isCreateForm: Bool = false
+    var _equipment: EquipmentDict = EquipmentDict()
+    
+    private var stream: AnyCancellable?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if(isCreateForm){
+            return
+        }
+
+        // start listeners
+
+        stream = store.$state.sink {state in
+            
+            let equipmentDict: EquipmentDict = state.currentEquipmentDict.equipmentDict
+            
+            if(!equipmentDict.isEmpty){
+                DispatchQueue.main.async {
+                    self._equipment = equipmentDict
+                    self.fillUIFields()
+                }
+            }
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if(isCreateForm){
+            return
+        }
+
+        // stop listeners
+        
+        stream?.cancel()
+        
+    }
+    
+    private func fillUIFields(){
+
+        if(_equipment.count == 0){
+            return
+        }
+
+        caption.text = _equipment["caption"] as? String
+        url.text = _equipment["url"] as? String
+        wsEnabled.isOn = _equipment["wsEnabled"] as! Bool
+
+    }
+
+    func create(dict: inout EquipmentDict){
+        
+        let uuid = UUID.init().uuidString
+
+        dict["uuid"] = uuid
+        dict["name"] = ""
+        dict["caption"] = caption.text!
+        dict["url"] = url.text!
+        dict["wsEnabled"] = wsEnabled.isOn
+
+        Application.app.addEquipment(data: dict)
+
+    }
+    
+    func save(dict: inout EquipmentDict){
+        
+        dict["name"] = ""
+        dict["caption"] = caption.text!
+        dict["url"] = url.text!
+        dict["wsEnabled"] = wsEnabled.isOn
+        
+        Application.app.saveEquipment(data: dict)
+        
+        store.dispatch(CurrentEquipmentAction.change(dict: dict))
+
+    }
+
+
+
 }
 
 

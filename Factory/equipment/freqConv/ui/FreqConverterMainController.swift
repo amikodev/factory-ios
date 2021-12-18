@@ -18,6 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 import SideMenu
+import Combine
 
 class FreqConverterMainController: UIEquipmentDeviceViewController {
 
@@ -26,11 +27,15 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     
     private var _equipmentDevice: FreqConverter?
     
+    
+    
+    private var stream: AnyCancellable?
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _equipmentDevice = FreqConverter(equipment: _equipmentDict!)
-        
 //        WebSocketStatusView.backgroundColor = .systemGreen
 
     }
@@ -39,7 +44,16 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
         super.viewDidAppear(animated)
 
         // start listeners
-        
+
+        stream = store.$state.sink {state in
+            let equipmentDict: EquipmentDict = state.currentEquipmentDict.equipmentDict
+            if(!equipmentDict.isEmpty){
+                if(state.currentEquipmentDict.isSelected){
+                    self._equipmentDevice = FreqConverter(equipment: equipmentDict)
+                }
+            }
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,11 +61,15 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
 
         // stop listeners
         
+        stream?.cancel()
+        
     }
     
     
 
     @IBAction func StartEngineClick(_ sender: UIButton) {
+        
+        print("start engine")
         
         _equipmentDevice?.engineStart()
         
@@ -59,6 +77,8 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     
     
     @IBAction func StopEngineClick(_ sender: UIButton) {
+        
+        print("stop engine")
         
         _equipmentDevice?.engineStop()
         
@@ -92,15 +112,8 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if(segue.identifier == "menu"){
-            if(segue.destination is SideMenuNavigationController && segue.destination.children[0] is IUpdateEquipment){
-                let updateEquipmentViewController: IUpdateEquipment = (segue.destination.children[0] as? IUpdateEquipment)!
-                updateEquipmentViewController.setEquipment(dict: _equipmentDict!)
-            }
-        }
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//    }
 
 }

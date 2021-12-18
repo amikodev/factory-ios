@@ -18,64 +18,43 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
-class CncRouterFormController: UIViewController, IAddEquipment, IUpdateEquipment {
+class CncRouterFormController: UIEquipmentFormController, IUIAddEquipment, IUIUpdateEquipment {
 
-    @IBOutlet weak var caption: UITextField!
-    @IBOutlet weak var url: UITextField!
-    @IBOutlet weak var wsEnabled: UISwitch!
-    
     @IBOutlet weak var sizeX: UITextField!
     @IBOutlet weak var sizeY: UITextField!
     @IBOutlet weak var sizeZ: UITextField!
 
-    
-    private var _equipment: EquipmentDict = EquipmentDict()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
-    func setEquipment(dict: EquipmentDict){
-        _equipment = dict
-        
-        print("setEquipment", _equipment)
-    }
 
     @IBAction func createClick(_ sender: UIButton) {
         
         var equipmentDict: EquipmentDict = EquipmentDict()
-        equipmentDict["type"] = "FreqConverter"
-        equipmentDict["name"] = ""
-        equipmentDict["caption"] = caption.text!
-        equipmentDict["url"] = url.text!
-        equipmentDict["wsEnabled"] = wsEnabled.isOn
+        equipmentDict["type"] = EquipmentType.CncRouter.rawValue
+        
         equipmentDict["x"] = (sizeX.text! as NSString).floatValue
         equipmentDict["y"] = (sizeY.text! as NSString).floatValue
         equipmentDict["Z"] = (sizeZ.text! as NSString).floatValue
-        Application.app.addEquipment(data: equipmentDict)
-        
 
-        
-//        let equipment = EquipmentCncRouter()
-//        equipment.type = EquipmentType.CncRouter
-//        equipment.name = ""
-//        equipment.caption = caption.text!
-//        equipment.url = url.text!
-//        equipment.wsEnabled = wsEnabled.isOn
-//        equipment.x = (sizeX.text! as NSString).floatValue
-//        equipment.y = (sizeY.text! as NSString).floatValue
-//        equipment.z = (sizeZ.text! as NSString).floatValue
-//
-//        Application.app.addEquipment(jsonData: try! JSONEncoder().encode(equipment))
+        create(dict: &equipmentDict)
 
         self.navigationController?.popToRootViewController(animated: true)
         
     }
-
+    
     @IBAction func saveClick(_ sender: UIButton){
+        
+        save(dict: &_equipment)
         
     }
 
-
 }
+
+
+class CncRouterCreateFormController: CncRouterFormController {
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.isCreateForm = true
+    }
+    
+}
+

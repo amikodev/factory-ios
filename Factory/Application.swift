@@ -19,32 +19,29 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import Foundation
 import UIKit
 
+/**
+ Application
+ */
 class Application{
     
     public static var app = Application()
     
-    private var _mainTabs: IMainTabs!
     private var _equipments: [EquipmentDict] = []
     
     init(){
         
-        updateEquipments()
+        refreshEquipments()
         
-    }
-    
-    func setMainTabs(tabs: IMainTabs){
-        _mainTabs = tabs
-    }
-    
-    func setEquipmentTab(equipmentDict: EquipmentDict){
-        _mainTabs.setEquipmentTab(equipmentDict: equipmentDict)
     }
     
     func getEquipments() -> [EquipmentDict] {
         return _equipments
     }
     
-    func updateEquipments(){
+    /**
+     Обновление списка используемого оборудования
+     */
+    func refreshEquipments(){
 
         _equipments = []
 
@@ -61,6 +58,9 @@ class Application{
         
     }
     
+    /**
+     Добавление нового оборудования
+     */
     func addEquipment(data: EquipmentDict){
         let defaults = UserDefaults.standard
         
@@ -71,11 +71,16 @@ class Application{
 
         eqs?.append(data)
 
+//        print("addEquipment", eqs)
+
         defaults.set(eqs, forKey: STORAGE_EQUIPMENTS)
-        updateEquipments()
+        refreshEquipments()
 
     }
     
+    /**
+     Сохранение параметров оборудования на основе uuid
+     */
     func saveEquipment(data: EquipmentDict){
         let defaults = UserDefaults.standard
         
@@ -93,12 +98,17 @@ class Application{
             }
             return el
         }
+        
+//        print("saveEquipment", eqs)
 
         defaults.set(eqs, forKey: STORAGE_EQUIPMENTS)
-        updateEquipments()
-
+        refreshEquipments()
+        
     }
     
+    /**
+     Удаление оборудования
+     */
     func removeEquipment(index: Int){
         let defaults = UserDefaults.standard
 
@@ -112,7 +122,7 @@ class Application{
             defaults.set(eqs, forKey: STORAGE_EQUIPMENTS)
         }
         
-        updateEquipments()
+        refreshEquipments()
     }
     
 }

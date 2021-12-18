@@ -18,45 +18,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
-class Cnc5AxisRouterFormController: UIViewController, IAddEquipment, IUpdateEquipment {
-
-    @IBOutlet weak var caption: UITextField!
-    @IBOutlet weak var url: UITextField!
-    @IBOutlet weak var wsEnabled: UISwitch!
-    
-    private var _equipment: EquipmentDict = EquipmentDict()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
-    func setEquipment(dict: EquipmentDict){
-        _equipment = dict
-        
-        print("setEquipment", _equipment)
-    }
+class Cnc5AxisRouterFormController: UIEquipmentFormController, IUIAddEquipment, IUIUpdateEquipment {
 
     @IBAction func createClick(_ sender: UIButton) {
         
         var equipmentDict: EquipmentDict = EquipmentDict()
-        equipmentDict["type"] = "FreqConverter"
-        equipmentDict["name"] = ""
-        equipmentDict["caption"] = caption.text!
-        equipmentDict["url"] = url.text!
-        equipmentDict["wsEnabled"] = wsEnabled.isOn
-        Application.app.addEquipment(data: equipmentDict)
+        equipmentDict["type"] = EquipmentType.Cnc5AxisRouter.rawValue
         
-
-        
-//        let equipment = EquipmentCnc5AxisRouter()
-//        equipment.type = EquipmentType.Cnc5AxisRouter
-//        equipment.name = ""
-//        equipment.caption = caption.text!
-//        equipment.url = url.text!
-//        equipment.wsEnabled = wsEnabled.isOn
-//        
-//        Application.app.addEquipment(jsonData: try! JSONEncoder().encode(equipment))
+        create(dict: &equipmentDict)
 
         self.navigationController?.popToRootViewController(animated: true)
         
@@ -64,6 +33,19 @@ class Cnc5AxisRouterFormController: UIViewController, IAddEquipment, IUpdateEqui
     
     @IBAction func saveClick(_ sender: UIButton){
         
+        save(dict: &_equipment)
+        
     }
 
 }
+
+
+class Cnc5AxisRouterCreateFormController: Cnc5AxisRouterFormController {
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.isCreateForm = true
+    }
+    
+}
+

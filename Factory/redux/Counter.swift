@@ -20,76 +20,14 @@ import Foundation
 
 
 /**
- Redux
+Счётчик
  */
-
-public protocol ReduxState{
-    
-}
-
-public protocol ReduxAction{
-    
-}
-
-public protocol ReduxStore: ObservableObject{
-    
-    associatedtype S: ReduxState
-    
-    var state: S { get }
-    
-    func dispatch(_ action: ReduxAction)
-    
-}
-
-public protocol ReduxReducer{
-    
-    associatedtype S: ReduxState
-    
-    func reduce(state: S?, action: ReduxAction?) -> S
-    
-}
-
-open class Store<AppState, RootReducer>: ReduxStore
-    where RootReducer: ReduxReducer,
-    RootReducer.S == AppState
-{
-    
-    @Published
-    private(set) public var state: AppState
-    
-    private let rootReducer: RootReducer
-    
-    init(initialState: S, rootReducer: RootReducer){
-        self.state = initialState
-        self.rootReducer = rootReducer
-    }
-    
-    public func dispatch(_ action: ReduxAction) {
-        state = rootReducer.reduce(state: state, action: action)
-    }
-    
-}
 
 struct CounterState: ReduxState{
     static var initialState: CounterState{
         .init(count: 0)
     }
     let count: Int
-}
-
-struct AppState: ReduxState{
-    let counterState: CounterState
-}
-
-struct RootReducer: ReduxReducer{
-    let counterReducer: CounterReducer
-    
-    func reduce(state: AppState?, action: ReduxAction?) -> AppState {
-        return AppState(
-            counterState: counterReducer.reduce(state: state?.counterState, action: action)
-        )
-    }
-    
 }
 
 enum CounterAction: ReduxAction{
@@ -122,13 +60,5 @@ struct CounterReducer: ReduxReducer{
     
 }
 
-typealias AppStore = Store<AppState, RootReducer>
 
-let store: AppStore = AppStore(
-    initialState: AppState(
-        counterState: .initialState
-    ),
-    rootReducer: RootReducer(
-        counterReducer: .init()
-    )
-)
+

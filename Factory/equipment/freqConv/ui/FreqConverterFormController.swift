@@ -17,62 +17,40 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 import UIKit
+import SideMenu
 
-class FreqConverterFormController: UIViewController, IAddEquipment, IUpdateEquipment {
-
-    @IBOutlet weak var caption: UITextField!
-    @IBOutlet weak var url: UITextField!
-    @IBOutlet weak var wsEnabled: UISwitch!
-    
-    private var _equipment: EquipmentDict = EquipmentDict()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        caption.text = _equipment["caption"] as? String
-        url.text = _equipment["url"] as? String
-        wsEnabled.isOn = _equipment["wsEnabled"] as! Bool
-        
-    }
-    
-    func setEquipment(dict: EquipmentDict){
-        _equipment = dict
-    }
-
+class FreqConverterFormController: UIEquipmentFormController, IUIAddEquipment, IUIUpdateEquipment {
 
     @IBAction func createClick(_ sender: UIButton) {
-
-        let uuid = UUID.init().uuidString
-
-        var equipmentDict: EquipmentDict = EquipmentDict()
-        equipmentDict["type"] = "FreqConverter"
-        equipmentDict["uuid"] = uuid
-        equipmentDict["name"] = ""
-        equipmentDict["caption"] = caption.text!
-        equipmentDict["url"] = url.text!
-        equipmentDict["wsEnabled"] = wsEnabled.isOn
-        Application.app.addEquipment(data: equipmentDict)
         
+        var equipmentDict: EquipmentDict = EquipmentDict()
+        equipmentDict["type"] = EquipmentType.FreqConverter.rawValue
+        
+        create(dict: &equipmentDict)
+
         self.navigationController?.popToRootViewController(animated: true)
         
     }
     
     @IBAction func saveClick(_ sender: UIButton){
         
-        var equipmentDict = _equipment
-        equipmentDict["name"] = ""
-        equipmentDict["caption"] = caption.text!
-        equipmentDict["url"] = url.text!
-        equipmentDict["wsEnabled"] = wsEnabled.isOn
-        Application.app.saveEquipment(data: equipmentDict)
+        save(dict: &_equipment)
 
+        // скрыть меню
+        let sideMenuController = self.navigationController as? SideMenuNavigationController
+        sideMenuController?.dismiss(animated: true, completion: nil)
+        
     }
 
-
-
 }
+
+
+class FreqConverterCreateFormController: FreqConverterFormController {
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.isCreateForm = true
+    }
+    
+}
+

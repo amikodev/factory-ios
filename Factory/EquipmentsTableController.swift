@@ -113,6 +113,10 @@ class EquipmentsTableController: UITableViewController {
     */
     
     // MARK: - UITableViewDelegate Methods
+    
+    /**
+     Action after select row
+     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -120,11 +124,13 @@ class EquipmentsTableController: UITableViewController {
         if(equipments.count > 0){
             let row = indexPath.row
             let equipmentDict = equipments[row]
-            Application.app.setEquipmentTab(equipmentDict: equipmentDict)
+            store.dispatch(CurrentEquipmentAction.select(dict: equipmentDict))
         }
     }
     
-    
+    /**
+     Height rows
+     */
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         let equipments = Application.app.getEquipments();
 

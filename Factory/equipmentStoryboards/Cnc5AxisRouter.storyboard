@@ -29,7 +29,7 @@
         <!--Title-->
         <scene sceneID="cZu-gk-roE">
             <objects>
-                <viewController id="dQ7-lh-NI1" sceneMemberID="viewController">
+                <viewController id="dQ7-lh-NI1" customClass="Cnc5AxisRouterMainController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Za1-Fg-ycB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

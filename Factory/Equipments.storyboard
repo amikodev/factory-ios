@@ -84,7 +84,7 @@
         <!--Freq Converter-->
         <scene sceneID="9gQ-hx-pw7">
             <objects>
-                <viewController id="cHc-JK-gD3" customClass="FreqConverterFormController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cHc-JK-gD3" customClass="FreqConverterCreateFormController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vFb-bv-6Kk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +167,7 @@
         <!--CNC Router-->
         <scene sceneID="hBg-mb-sin">
             <objects>
-                <viewController id="XiB-eg-45e" customClass="CncRouterFormController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XiB-eg-45e" customClass="CncRouterCreateFormController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QFx-iF-f7N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +189,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Y" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQo-JE-uOS">
-                                        <rect key="frame" x="148" y="92" width="77" height="34"/>
+                                        <rect key="frame" x="147" y="92" width="77" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
@@ -336,7 +336,7 @@
         <!--CNC 5 axis Router-->
         <scene sceneID="H6Z-sP-AgZ">
             <objects>
-                <viewController id="qgV-OE-6AR" customClass="Cnc5AxisRouterFormController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qgV-OE-6AR" customClass="Cnc5AxisRouterCreateFormController" customModule="Factory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a6V-6S-Eyn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
