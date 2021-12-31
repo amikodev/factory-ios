@@ -21,21 +21,22 @@ import Foundation
 /**
  Частотный преобразователь
  */
-class FreqConverter: EquipmentDevice{
+class FreqConverter: WsDefaultProtocol, IFreqConverter{
+    
     
     private var _equipment: EquipmentDict
-    private var _freq: Int = 0
+    var _freq: Int = 0
     
-    static let OBJ_NAME_DEVICE = 0x50
-    static let OBJ_NAME_ENGINE = 0x51
-    static let OBJ_NAME_FREQ = 0x52
-    static let OBJ_NAME_DIRECTION = 0x53
+    static let OBJ_NAME_DEVICE: UInt8 = 0x50
+    static let OBJ_NAME_ENGINE: UInt8 = 0x51
+    static let OBJ_NAME_FREQ: UInt8 = 0x52
+    static let OBJ_NAME_DIRECTION: UInt8 = 0x53
     
-    static let CMD_READ = 0x01
-    static let CMD_WRITE = 0x02
+    static let CMD_READ: UInt8 = 0x01
+    static let CMD_WRITE: UInt8 = 0x02
     
-    static let ENGINE_STATE_RUN = 0x01
-    static let ENGINE_STATE_STOP = 0x02
+    static let ENGINE_STATE_RUN: UInt8 = 0x01
+    static let ENGINE_STATE_STOP: UInt8 = 0x02
 
     
     init(equipment: EquipmentDict){
@@ -43,34 +44,56 @@ class FreqConverter: EquipmentDevice{
         _equipment = equipment
         _freq = 0
         
+        super.init(url: _equipment["url"] as! String)
+        
     }
     
     /**
      Запустить двигатель
      */
     func engineStart(){
-        
-        let data = [FreqConverter.OBJ_NAME_ENGINE, FreqConverter.CMD_WRITE, FreqConverter.ENGINE_STATE_RUN]
-        
+        typealias FC = FreqConverter
+        send(data: [FC.OBJ_NAME_ENGINE, FC.CMD_WRITE, FC.ENGINE_STATE_RUN])
     }
     
     /**
      Остановить двигатель
      */
     func engineStop(){
-        
-        let data = [FreqConverter.OBJ_NAME_ENGINE, FreqConverter.CMD_WRITE, FreqConverter.ENGINE_STATE_STOP]
-
+        typealias FC = FreqConverter
+        send(data: [FC.OBJ_NAME_ENGINE, FC.CMD_WRITE, FC.ENGINE_STATE_STOP])
     }
     
     /**
      Установить частоту вращения
      */
     func setFreq(value: Int){
-        
-        let data = [FreqConverter.OBJ_NAME_FREQ, FreqConverter.CMD_WRITE, (value >> 8) & 0xFF, (value) & 0xFF]
-        
+        typealias FC = FreqConverter
+        send(data: [FC.OBJ_NAME_FREQ, FC.CMD_WRITE, UInt8((value >> 8) & 0xFF), UInt8((value) & 0xFF)])
     }
     
     
+}
+
+
+protocol IFreqConverter: IEquipmentDevice{
+    
+    // частота вращения
+    var _freq: Int { get set }
+    
+    /**
+     Запустить двигатель
+     */
+    func engineStart()
+    
+    /**
+     Остановить двигатель
+     */
+    func engineStop()
+
+    /**
+     Установить частоту вращения
+     */
+    func setFreq(value: Int)
+
 }

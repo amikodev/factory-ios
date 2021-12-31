@@ -23,7 +23,8 @@ import Combine
 let STORAGE_EQUIPMENTS = "Equipments"
 
 protocol IMainTabs{
-    func setEquipmentTab(equipmentDict: [String: Any])
+    func setEquipmentTab(equipmentDict: EquipmentDict)
+    func updateEquipmentTab(equipmentDict: EquipmentDict)
 }
 
 
@@ -45,17 +46,25 @@ enum EquipmentType: String{
     case Cnc5AxisRouter
 }
 
+enum DeviceConnectionType{
+    case WebSocket
+    case Http
+}
+
 typealias EquipmentDict = [String: Any]
 
 
 
-protocol EquipmentDevice{
+protocol IEquipmentDevice{
     
+    // соединение
+    var _connection: IConnection? { get set }
+
 }
 
 class UIEquipmentDeviceViewController: UIViewController{
 
-    @IBOutlet weak var WebSocketStatusView: UIView!
+    @IBOutlet weak var ConnectionStatusView: UIView!
 
     var _equipmentDict: EquipmentDict?
 
@@ -92,110 +101,82 @@ class UIEquipmentDeviceViewController: UIViewController{
         
     }
     
+    func connectionListenStart(connection: IConnection?){
+        connection?.onSuccessConnect {
+            DispatchQueue.main.async {
+                self.ConnectionStatusView.backgroundColor = .systemGreen
+            }
+        }
+    }
+    
+    func connectionListenStop(connection: IConnection?){
+
+        connection?.onSuccessConnect { }
+
+    }
+    
 }
 
 
 protocol IEquipmentForm{
     
-//    func setEquipment(dict: EquipmentDict)
     func create(dict: inout EquipmentDict)
     func save(dict: inout EquipmentDict)
     
 }
 
-class UIEquipmentFormController: UIViewController, IEquipmentForm{
+protocol IConnection{
     
-    @IBOutlet weak var caption: UITextField!
-    @IBOutlet weak var url: UITextField!
-    @IBOutlet weak var wsEnabled: UISwitch!
+    var _url: String? { get set }
     
-    var isCreateForm: Bool = false
-    var _equipment: EquipmentDict = EquipmentDict()
+    var _onSuccessConnectFunc: () -> Void { get set }
+    var _onErrorConnectFunc: () -> Void { get set }
+    var _onSuccessDisconnectFunc: () -> Void { get set }
+    var _onErrorSendFunc: () -> Void { get set }
+    var _onReceiveFunc: (_ data: Data) -> Void { get set }
+
     
-    private var stream: AnyCancellable?
+    init(url: String)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func connect()
+    func disconnect()
+    func send(data: Any)
+
+    func onSuccessConnect(callback: @escaping () -> Void)
+    func onErrorConnect(callback: @escaping () -> Void)
+    func onSuccessDisconnect(callback: @escaping () -> Void)
+    func onErrorSend(callback: @escaping () -> Void)
+    func onReceive(callback: @escaping (_ data: Data) -> Void)
+    
+    
+}
+
+
+class WsDefaultProtocol: IEquipmentDevice{
+
+    var _connection: IConnection?
+    
+    init(url: String){
+
+        _connection = WebSocketConnection(url: url)
 
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+
+    func prepareData(preData: [UInt8]) -> [UInt8]{
+        var arr: [UInt8] = [UInt8](repeating: 0x00, count: 16)
         
-        if(isCreateForm){
-            return
+        let l = min(preData.count, 16)
+        for i in (0...l-1){
+            arr[i] = preData[i]
         }
-
-        // start listeners
-
-        stream = store.$state.sink {state in
-            
-            let equipmentDict: EquipmentDict = state.currentEquipmentDict.equipmentDict
-            
-            if(!equipmentDict.isEmpty){
-                DispatchQueue.main.async {
-                    self._equipment = equipmentDict
-                    self.fillUIFields()
-                }
-            }
-        }
         
+        return arr
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if(isCreateForm){
-            return
-        }
-
-        // stop listeners
-        
-        stream?.cancel()
-        
+    func send(data: [UInt8]){
+        _connection?.send(data: Data(prepareData(preData: data)))
     }
     
-    private func fillUIFields(){
-
-        if(_equipment.count == 0){
-            return
-        }
-
-        caption.text = _equipment["caption"] as? String
-        url.text = _equipment["url"] as? String
-        wsEnabled.isOn = _equipment["wsEnabled"] as! Bool
-
-    }
-
-    func create(dict: inout EquipmentDict){
-        
-        let uuid = UUID.init().uuidString
-
-        dict["uuid"] = uuid
-        dict["name"] = ""
-        dict["caption"] = caption.text!
-        dict["url"] = url.text!
-        dict["wsEnabled"] = wsEnabled.isOn
-
-        Application.app.addEquipment(data: dict)
-
-    }
-    
-    func save(dict: inout EquipmentDict){
-        
-        dict["name"] = ""
-        dict["caption"] = caption.text!
-        dict["url"] = url.text!
-        dict["wsEnabled"] = wsEnabled.isOn
-        
-        Application.app.saveEquipment(data: dict)
-        
-        store.dispatch(CurrentEquipmentAction.change(dict: dict))
-
-    }
-
-
-
 }
 
 

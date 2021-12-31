@@ -25,7 +25,7 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     @IBOutlet weak var FreqText: UITextField!
     @IBOutlet weak var FreqSlider: UISlider!
     
-    private var _equipmentDevice: FreqConverter?
+    private var _equipmentDevice: IFreqConverter?
     
     
     
@@ -36,7 +36,8 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        WebSocketStatusView.backgroundColor = .systemGreen
+//        ConnectionStatusView.backgroundColor = .systemGreen
+//        _equipmentDevice?._connection?.connect()
 
     }
     
@@ -49,7 +50,10 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
             let equipmentDict: EquipmentDict = state.currentEquipmentDict.equipmentDict
             if(!equipmentDict.isEmpty){
                 if(state.currentEquipmentDict.isSelected){
-                    self._equipmentDevice = FreqConverter(equipment: equipmentDict)
+                    let eq: IEquipmentDevice = FreqConverter(equipment: equipmentDict)
+                    self._equipmentDevice = eq as! IFreqConverter
+                    self.connectionListenStart(connection: eq._connection)
+                    eq._connection?.connect()
                 }
             }
         }
@@ -87,7 +91,7 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     
     @IBAction func FreqButtonClick(_ sender: UIButton) {
         let freq: Int = (sender.titleLabel?.text as? NSString)?.integerValue ?? 0
-        FreqSlider.value = Float(freq)
+        FreqSlider.value = Float(freq) * 10
         
         _equipmentDevice?.setFreq(value: freq)
         

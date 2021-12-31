@@ -10,6 +10,9 @@
 		2C0F7BC42761E4CA00E4DC3A /* PanZoomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F7BC32761E4CA00E4DC3A /* PanZoomImageView.swift */; };
 		2C18873C276E66C50075C7EA /* CncRouterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C18873B276E66C50075C7EA /* CncRouterMainController.swift */; };
 		2C18873E276E66F30075C7EA /* Cnc5AxisRouterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C18873D276E66F30075C7EA /* Cnc5AxisRouterMainController.swift */; };
+		2C188743276E84B00075C7EA /* arch-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C188742276E84B00075C7EA /* arch-01.png */; };
+		2C188745276F3D6B0075C7EA /* UIEquipmentFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C188744276F3D6B0075C7EA /* UIEquipmentFormController.swift */; };
+		2C188748276F45B50075C7EA /* WebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C188747276F45B50075C7EA /* WebSocketConnection.swift */; };
 		2C2301C12765808C00754B43 /* FreqConverterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2301C02765808C00754B43 /* FreqConverterMainController.swift */; };
 		2C2301C32765BA9800754B43 /* FreqConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2301C22765BA9800754B43 /* FreqConverter.swift */; };
 		2C4A69F82765F05700A00AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A69F72765F05700A00AE7 /* README.md */; };
@@ -66,6 +69,9 @@
 		2C0F7BC32761E4CA00E4DC3A /* PanZoomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanZoomImageView.swift; sourceTree = "<group>"; };
 		2C18873B276E66C50075C7EA /* CncRouterMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CncRouterMainController.swift; sourceTree = "<group>"; };
 		2C18873D276E66F30075C7EA /* Cnc5AxisRouterMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cnc5AxisRouterMainController.swift; sourceTree = "<group>"; };
+		2C188742276E84B00075C7EA /* arch-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arch-01.png"; sourceTree = "<group>"; };
+		2C188744276F3D6B0075C7EA /* UIEquipmentFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEquipmentFormController.swift; sourceTree = "<group>"; };
+		2C188747276F45B50075C7EA /* WebSocketConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketConnection.swift; sourceTree = "<group>"; };
 		2C2301C02765808C00754B43 /* FreqConverterMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverterMainController.swift; sourceTree = "<group>"; };
 		2C2301C22765BA9800754B43 /* FreqConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverter.swift; sourceTree = "<group>"; };
 		2C4A69F72765F05700A00AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -142,6 +148,22 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		2C188741276E841B0075C7EA /* git.docs */ = {
+			isa = PBXGroup;
+			children = (
+				2C188742276E84B00075C7EA /* arch-01.png */,
+			);
+			path = git.docs;
+			sourceTree = "<group>";
+		};
+		2C188746276F457F0075C7EA /* connection */ = {
+			isa = PBXGroup;
+			children = (
+				2C188747276F45B50075C7EA /* WebSocketConnection.swift */,
+			);
+			path = connection;
+			sourceTree = "<group>";
+		};
 		2CA11CF4275C035400AAADE4 /* equipmentStoryboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +180,7 @@
 				2CA11CFE275C06CF00AAADE4 /* freqConv */,
 				2CA11CFD275C06C100AAADE4 /* cncRouter */,
 				2CA11CFC275C056900AAADE4 /* cnc5AxisRouter */,
+				2C188744276F3D6B0075C7EA /* UIEquipmentFormController.swift */,
 			);
 			path = equipment;
 			sourceTree = "<group>";
@@ -220,6 +243,7 @@
 				2C4A69F92765F31800A00AE7 /* Podfile */,
 				2C4A69F72765F05700A00AE7 /* README.md */,
 				2CAB48C8275B126100482C6B /* Factory */,
+				2C188741276E841B0075C7EA /* git.docs */,
 				2CAB48DF275B126300482C6B /* FactoryTests */,
 				2CAB48E9275B126300482C6B /* FactoryUITests */,
 				2CAB48C7275B126100482C6B /* Products */,
@@ -245,6 +269,7 @@
 				2CA11CFB275C055900AAADE4 /* equipment */,
 				2CA11CF4275C035400AAADE4 /* equipmentStoryboards */,
 				2CB3A55B276A5D15002AC5B5 /* redux */,
+				2C188746276F457F0075C7EA /* connection */,
 				2CAB48C9275B126100482C6B /* AppDelegate.swift */,
 				2CAB48CB275B126100482C6B /* SceneDelegate.swift */,
 				2CAB48CD275B126100482C6B /* ViewController.swift */,
@@ -423,6 +448,7 @@
 			files = (
 				2CAB48D6275B126300482C6B /* LaunchScreen.storyboard in Resources */,
 				2CA11CFA275C03EB00AAADE4 /* FreqConverter.storyboard in Resources */,
+				2C188743276E84B00075C7EA /* arch-01.png in Resources */,
 				2CA11CF8275C03D300AAADE4 /* Cnc5AxisRouter.storyboard in Resources */,
 				2CAB48D3275B126300482C6B /* Assets.xcassets in Resources */,
 				2CAB48D1275B126100482C6B /* Main.storyboard in Resources */,
@@ -559,6 +585,7 @@
 			files = (
 				2C0F7BC42761E4CA00E4DC3A /* PanZoomImageView.swift in Sources */,
 				2CA62A0727657D4500A8CB49 /* CncRouterFormController.swift in Sources */,
+				2C188745276F3D6B0075C7EA /* UIEquipmentFormController.swift in Sources */,
 				2CB3A55A2768DB09002AC5B5 /* Redux.swift in Sources */,
 				2CAB48FE275B44AE00482C6B /* Application.swift in Sources */,
 				2CA11D09275C65E700AAADE4 /* EquipmentsTableController.swift in Sources */,
@@ -570,6 +597,7 @@
 				2CAB48CA275B126100482C6B /* AppDelegate.swift in Sources */,
 				2CAB48CC275B126100482C6B /* SceneDelegate.swift in Sources */,
 				2CA11CF3275BFC7400AAADE4 /* Interfaces.swift in Sources */,
+				2C188748276F45B50075C7EA /* WebSocketConnection.swift in Sources */,
 				2C4AFE96276A5E8D0010E3F7 /* CurrentEquipment.swift in Sources */,
 				2C18873C276E66C50075C7EA /* CncRouterMainController.swift in Sources */,
 				2CAB4900275B496600482C6B /* MainTabsController.swift in Sources */,

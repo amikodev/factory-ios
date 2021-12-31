@@ -1,5 +1,4 @@
-Автор: Приходько Дмитрий
-Author: Prihodko Dmitriy
+Автор: Приходько Дмитрий (Prihodko Dmitriy)
 [asketcnc@yandex.ru](mailto:asketcnc@yandex.ru)
 
 # Industrial equipment management with iOS mobile application
