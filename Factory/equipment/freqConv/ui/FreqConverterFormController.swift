@@ -1,6 +1,6 @@
 /*
 amikodev/factory-ios - Industrial equipment management with iOS mobile application
-Copyright © 2021 Prihodko Dmitriy - asketcnc@yandex.ru
+Copyright © 2021-2022 Prihodko Dmitriy - asketcnc@yandex.ru
 */
 
 /*
@@ -19,7 +19,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import UIKit
 import SideMenu
 
-class FreqConverterFormController: UIEquipmentFormController, IUIAddEquipment, IUIUpdateEquipment {
+class FreqConverterFormController: UIEquipmentFormController, IUIAddEquipment, IUIUpdateEquipment, IUIWifiForm {
+
+    var wifiEquipment: IWifiEquipment?
 
     @IBAction func createClick(_ sender: UIButton) {
         
@@ -39,6 +41,15 @@ class FreqConverterFormController: UIEquipmentFormController, IUIAddEquipment, I
         // скрыть меню
         let sideMenuController = self.navigationController as? SideMenuNavigationController
         sideMenuController?.dismiss(animated: true, completion: nil)
+        
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if(segue.destination.children[0] is IUIWifiForm){
+            var wf: IUIWifiForm = segue.destination.children[0] as! IUIWifiForm
+            wf.wifiEquipment = wifiEquipment
+        }
         
     }
 

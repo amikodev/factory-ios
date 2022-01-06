@@ -1,6 +1,6 @@
 /*
 amikodev/factory-ios - Industrial equipment management with iOS mobile application
-Copyright © 2021 Prihodko Dmitriy - asketcnc@yandex.ru
+Copyright © 2021-2022 Prihodko Dmitriy - asketcnc@yandex.ru
 */
 
 /*
@@ -26,18 +26,14 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     @IBOutlet weak var FreqSlider: UISlider!
     
     private var _equipmentDevice: IFreqConverter?
-    
-    
+    var wifiEquipment: IWifiEquipment?
+
     
     private var stream: AnyCancellable?
-    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        ConnectionStatusView.backgroundColor = .systemGreen
-//        _equipmentDevice?._connection?.connect()
 
     }
     
@@ -52,6 +48,7 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
                 if(state.currentEquipmentDict.isSelected){
                     let eq: IEquipmentDevice = FreqConverter(equipment: equipmentDict)
                     self._equipmentDevice = eq as! IFreqConverter
+                    self.wifiEquipment = WifiEquipment(connection: eq._connection)
                     self.connectionListenStart(connection: eq._connection)
                     eq._connection?.connect()
                 }
@@ -91,7 +88,7 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
     
     @IBAction func FreqButtonClick(_ sender: UIButton) {
         let freq: Int = (sender.titleLabel?.text as? NSString)?.integerValue ?? 0
-        FreqSlider.value = Float(freq) * 10
+        FreqSlider.value = Float(freq)
         
         _equipmentDevice?.setFreq(value: freq)
         
@@ -112,12 +109,15 @@ class FreqConverterMainController: UIEquipmentDeviceViewController {
         _equipmentDevice?.setFreq(value: freq)
     }
     
-    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if(segue.destination.children[0] is IUIWifiForm){
+            var wf: IUIWifiForm = segue.destination.children[0] as! IUIWifiForm
+            wf.wifiEquipment = wifiEquipment
+        }
+        
+    }
 
 }

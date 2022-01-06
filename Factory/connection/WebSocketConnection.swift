@@ -1,6 +1,6 @@
 /*
 amikodev/factory-ios - Industrial equipment management with iOS mobile application
-Copyright © 2021 Prihodko Dmitriy - asketcnc@yandex.ru
+Copyright © 2021-2022 Prihodko Dmitriy - asketcnc@yandex.ru
 */
 
 /*
@@ -17,6 +17,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 import Foundation
+
+
+let WS_OBJ_NAME_DEVICE: UInt8 = 0x50
+
+
+let WS_CMD_READ: UInt8 = 0x01
+let WS_CMD_WRITE: UInt8 = 0x02
+
+
+
 
 class WebSocketConnection: NSObject, IConnection, URLSessionWebSocketDelegate{
     

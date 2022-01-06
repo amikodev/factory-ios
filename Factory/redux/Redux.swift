@@ -1,6 +1,6 @@
 /*
 amikodev/factory-ios - Industrial equipment management with iOS mobile application
-Copyright © 2021 Prihodko Dmitriy - asketcnc@yandex.ru
+Copyright © 2021-2022 Prihodko Dmitriy - asketcnc@yandex.ru
 */
 
 /*
@@ -76,16 +76,19 @@ open class Store<AppState, RootReducer>: ReduxStore
 struct AppState: ReduxState{
     let counterState: CounterState
     let currentEquipmentDict: CurrentEquipmentState
+    let deviceDataState: DeviceDataState
 }
 
 struct RootReducer: ReduxReducer{
     let counterReducer: CounterReducer
     let currentEquipmentDictReducer: CurrentEquipmentReducer
+    let deviceDataReducer: DeviceDataReducer
     
     func reduce(state: AppState?, action: ReduxAction?) -> AppState {
         return AppState(
             counterState: counterReducer.reduce(state: state?.counterState, action: action),
-            currentEquipmentDict: currentEquipmentDictReducer.reduce(state: state?.currentEquipmentDict, action: action)
+            currentEquipmentDict: currentEquipmentDictReducer.reduce(state: state?.currentEquipmentDict, action: action),
+            deviceDataState: deviceDataReducer.reduce(state: state?.deviceDataState, action: action)
         )
     }
     
@@ -96,10 +99,12 @@ typealias AppStore = Store<AppState, RootReducer>
 let store: AppStore = AppStore(
     initialState: AppState(
         counterState: .initialState,
-        currentEquipmentDict: .initialState
+        currentEquipmentDict: .initialState,
+        deviceDataState: .initialState
     ),
     rootReducer: RootReducer(
         counterReducer: .init(),
-        currentEquipmentDictReducer: .init()
+        currentEquipmentDictReducer: .init(),
+        deviceDataReducer: .init()
     )
 )

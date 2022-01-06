@@ -15,6 +15,9 @@
 		2C188748276F45B50075C7EA /* WebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C188747276F45B50075C7EA /* WebSocketConnection.swift */; };
 		2C2301C12765808C00754B43 /* FreqConverterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2301C02765808C00754B43 /* FreqConverterMainController.swift */; };
 		2C2301C32765BA9800754B43 /* FreqConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2301C22765BA9800754B43 /* FreqConverter.swift */; };
+		2C3184B12784EAB100572D95 /* Wifi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3184B02784EAB100572D95 /* Wifi.storyboard */; };
+		2C3184B42784EFCA00572D95 /* WifiMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3184B32784EFCA00572D95 /* WifiMainController.swift */; };
+		2C3184B82785D67200572D95 /* DeviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3184B72785D67200572D95 /* DeviceData.swift */; };
 		2C4A69F82765F05700A00AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A69F72765F05700A00AE7 /* README.md */; };
 		2C4A69FA2765F31800A00AE7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A69F92765F31800A00AE7 /* Podfile */; };
 		2C4AFE94276A5DAC0010E3F7 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AFE93276A5DAC0010E3F7 /* Counter.swift */; };
@@ -29,7 +32,6 @@
 		2CA62A0727657D4500A8CB49 /* CncRouterFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62A0627657D4500A8CB49 /* CncRouterFormController.swift */; };
 		2CAB48CA275B126100482C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48C9275B126100482C6B /* AppDelegate.swift */; };
 		2CAB48CC275B126100482C6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48CB275B126100482C6B /* SceneDelegate.swift */; };
-		2CAB48CE275B126100482C6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48CD275B126100482C6B /* ViewController.swift */; };
 		2CAB48D1275B126100482C6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAB48CF275B126100482C6B /* Main.storyboard */; };
 		2CAB48D3275B126300482C6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAB48D2275B126300482C6B /* Assets.xcassets */; };
 		2CAB48D6275B126300482C6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAB48D4275B126300482C6B /* LaunchScreen.storyboard */; };
@@ -39,6 +41,7 @@
 		2CAB48FA275B2ABC00482C6B /* Equipments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAB48F9275B2ABC00482C6B /* Equipments.storyboard */; };
 		2CAB48FE275B44AE00482C6B /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48FD275B44AE00482C6B /* Application.swift */; };
 		2CAB4900275B496600482C6B /* MainTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB48FF275B496600482C6B /* MainTabsController.swift */; };
+		2CAD8EE5278488A90093B1B1 /* WifiEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD8EE4278488A90093B1B1 /* WifiEquipment.swift */; };
 		2CAF4B732766122D00EBF4A1 /* Pods_Factory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171C092C4179531384703649 /* Pods_Factory.framework */; };
 		2CB3A55A2768DB09002AC5B5 /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3A5592768DB08002AC5B5 /* Redux.swift */; };
 		E47D307B86ACE9171FBA05F8 /* Pods_Factory_FactoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F79F6AD4B2561F3A63B6F8 /* Pods_Factory_FactoryUITests.framework */; };
@@ -74,6 +77,9 @@
 		2C188747276F45B50075C7EA /* WebSocketConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketConnection.swift; sourceTree = "<group>"; };
 		2C2301C02765808C00754B43 /* FreqConverterMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverterMainController.swift; sourceTree = "<group>"; };
 		2C2301C22765BA9800754B43 /* FreqConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqConverter.swift; sourceTree = "<group>"; };
+		2C3184B02784EAB100572D95 /* Wifi.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wifi.storyboard; sourceTree = "<group>"; };
+		2C3184B32784EFCA00572D95 /* WifiMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiMainController.swift; sourceTree = "<group>"; };
+		2C3184B72785D67200572D95 /* DeviceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceData.swift; sourceTree = "<group>"; };
 		2C4A69F72765F05700A00AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2C4A69F92765F31800A00AE7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2C4AFE93276A5DAC0010E3F7 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
@@ -90,7 +96,6 @@
 		2CAB48C6275B126100482C6B /* Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Factory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAB48C9275B126100482C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAB48CB275B126100482C6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CAB48CD275B126100482C6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2CAB48D0275B126100482C6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CAB48D2275B126300482C6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CAB48D5275B126300482C6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		2CAB48F9275B2ABC00482C6B /* Equipments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Equipments.storyboard; sourceTree = "<group>"; };
 		2CAB48FD275B44AE00482C6B /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		2CAB48FF275B496600482C6B /* MainTabsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabsController.swift; sourceTree = "<group>"; };
+		2CAD8EE4278488A90093B1B1 /* WifiEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiEquipment.swift; sourceTree = "<group>"; };
 		2CB3A5592768DB08002AC5B5 /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
 		2CF25EDA6AD4958F8F33E93A /* Pods-Factory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Factory.debug.xcconfig"; path = "Target Support Files/Pods-Factory/Pods-Factory.debug.xcconfig"; sourceTree = "<group>"; };
 		31E5BB4FB583201F235CCC49 /* Pods_FactoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FactoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,9 +170,26 @@
 			path = connection;
 			sourceTree = "<group>";
 		};
+		2C3184AF2784EA9800572D95 /* sub */ = {
+			isa = PBXGroup;
+			children = (
+				2C3184B02784EAB100572D95 /* Wifi.storyboard */,
+			);
+			path = sub;
+			sourceTree = "<group>";
+		};
+		2C3184B22784EF9C00572D95 /* sub */ = {
+			isa = PBXGroup;
+			children = (
+				2C3184B32784EFCA00572D95 /* WifiMainController.swift */,
+			);
+			path = sub;
+			sourceTree = "<group>";
+		};
 		2CA11CF4275C035400AAADE4 /* equipmentStoryboards */ = {
 			isa = PBXGroup;
 			children = (
+				2C3184AF2784EA9800572D95 /* sub */,
 				2CA11CF5275C03AF00AAADE4 /* CncRouter.storyboard */,
 				2CA11CF7275C03D300AAADE4 /* Cnc5AxisRouter.storyboard */,
 				2CA11CF9275C03EB00AAADE4 /* FreqConverter.storyboard */,
@@ -177,6 +200,7 @@
 		2CA11CFB275C055900AAADE4 /* equipment */ = {
 			isa = PBXGroup;
 			children = (
+				2C3184B22784EF9C00572D95 /* sub */,
 				2CA11CFE275C06CF00AAADE4 /* freqConv */,
 				2CA11CFD275C06C100AAADE4 /* cncRouter */,
 				2CA11CFC275C056900AAADE4 /* cnc5AxisRouter */,
@@ -270,9 +294,9 @@
 				2CA11CF4275C035400AAADE4 /* equipmentStoryboards */,
 				2CB3A55B276A5D15002AC5B5 /* redux */,
 				2C188746276F457F0075C7EA /* connection */,
+				2CAD8EE2278488600093B1B1 /* subEquipment */,
 				2CAB48C9275B126100482C6B /* AppDelegate.swift */,
 				2CAB48CB275B126100482C6B /* SceneDelegate.swift */,
-				2CAB48CD275B126100482C6B /* ViewController.swift */,
 				2CAB48CF275B126100482C6B /* Main.storyboard */,
 				2CAB48F9275B2ABC00482C6B /* Equipments.storyboard */,
 				2CAB48D2275B126300482C6B /* Assets.xcassets */,
@@ -304,12 +328,29 @@
 			path = FactoryUITests;
 			sourceTree = "<group>";
 		};
+		2CAD8EE2278488600093B1B1 /* subEquipment */ = {
+			isa = PBXGroup;
+			children = (
+				2CAD8EE3278488820093B1B1 /* wifi */,
+			);
+			path = subEquipment;
+			sourceTree = "<group>";
+		};
+		2CAD8EE3278488820093B1B1 /* wifi */ = {
+			isa = PBXGroup;
+			children = (
+				2CAD8EE4278488A90093B1B1 /* WifiEquipment.swift */,
+			);
+			path = wifi;
+			sourceTree = "<group>";
+		};
 		2CB3A55B276A5D15002AC5B5 /* redux */ = {
 			isa = PBXGroup;
 			children = (
 				2CB3A5592768DB08002AC5B5 /* Redux.swift */,
 				2C4AFE93276A5DAC0010E3F7 /* Counter.swift */,
 				2C4AFE95276A5E8D0010E3F7 /* CurrentEquipment.swift */,
+				2C3184B72785D67200572D95 /* DeviceData.swift */,
 			);
 			path = redux;
 			sourceTree = "<group>";
@@ -452,6 +493,7 @@
 				2CA11CF8275C03D300AAADE4 /* Cnc5AxisRouter.storyboard in Resources */,
 				2CAB48D3275B126300482C6B /* Assets.xcassets in Resources */,
 				2CAB48D1275B126100482C6B /* Main.storyboard in Resources */,
+				2C3184B12784EAB100572D95 /* Wifi.storyboard in Resources */,
 				2CA11CF6275C03AF00AAADE4 /* CncRouter.storyboard in Resources */,
 				2C4A69FA2765F31800A00AE7 /* Podfile in Resources */,
 				2C4A69F82765F05700A00AE7 /* README.md in Resources */,
@@ -584,16 +626,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C0F7BC42761E4CA00E4DC3A /* PanZoomImageView.swift in Sources */,
+				2CAD8EE5278488A90093B1B1 /* WifiEquipment.swift in Sources */,
 				2CA62A0727657D4500A8CB49 /* CncRouterFormController.swift in Sources */,
 				2C188745276F3D6B0075C7EA /* UIEquipmentFormController.swift in Sources */,
 				2CB3A55A2768DB09002AC5B5 /* Redux.swift in Sources */,
 				2CAB48FE275B44AE00482C6B /* Application.swift in Sources */,
+				2C3184B42784EFCA00572D95 /* WifiMainController.swift in Sources */,
 				2CA11D09275C65E700AAADE4 /* EquipmentsTableController.swift in Sources */,
 				2C4AFE94276A5DAC0010E3F7 /* Counter.swift in Sources */,
 				2CA11D07275C2FB900AAADE4 /* Cnc5AxisRouterFormController.swift in Sources */,
 				2C18873E276E66F30075C7EA /* Cnc5AxisRouterMainController.swift in Sources */,
 				2C2301C12765808C00754B43 /* FreqConverterMainController.swift in Sources */,
-				2CAB48CE275B126100482C6B /* ViewController.swift in Sources */,
 				2CAB48CA275B126100482C6B /* AppDelegate.swift in Sources */,
 				2CAB48CC275B126100482C6B /* SceneDelegate.swift in Sources */,
 				2CA11CF3275BFC7400AAADE4 /* Interfaces.swift in Sources */,
@@ -603,6 +646,7 @@
 				2CAB4900275B496600482C6B /* MainTabsController.swift in Sources */,
 				2C2301C32765BA9800754B43 /* FreqConverter.swift in Sources */,
 				2CA62A0527657D2400A8CB49 /* FreqConverterFormController.swift in Sources */,
+				2C3184B82785D67200572D95 /* DeviceData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

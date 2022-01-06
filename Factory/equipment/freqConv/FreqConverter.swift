@@ -27,13 +27,9 @@ class FreqConverter: WsDefaultProtocol, IFreqConverter{
     private var _equipment: EquipmentDict
     var _freq: Int = 0
     
-    static let OBJ_NAME_DEVICE: UInt8 = 0x50
     static let OBJ_NAME_ENGINE: UInt8 = 0x51
     static let OBJ_NAME_FREQ: UInt8 = 0x52
     static let OBJ_NAME_DIRECTION: UInt8 = 0x53
-    
-    static let CMD_READ: UInt8 = 0x01
-    static let CMD_WRITE: UInt8 = 0x02
     
     static let ENGINE_STATE_RUN: UInt8 = 0x01
     static let ENGINE_STATE_STOP: UInt8 = 0x02
@@ -53,7 +49,7 @@ class FreqConverter: WsDefaultProtocol, IFreqConverter{
      */
     func engineStart(){
         typealias FC = FreqConverter
-        send(data: [FC.OBJ_NAME_ENGINE, FC.CMD_WRITE, FC.ENGINE_STATE_RUN])
+        send(data: [FC.OBJ_NAME_ENGINE, WS_CMD_WRITE, FC.ENGINE_STATE_RUN])
     }
     
     /**
@@ -61,7 +57,7 @@ class FreqConverter: WsDefaultProtocol, IFreqConverter{
      */
     func engineStop(){
         typealias FC = FreqConverter
-        send(data: [FC.OBJ_NAME_ENGINE, FC.CMD_WRITE, FC.ENGINE_STATE_STOP])
+        send(data: [FC.OBJ_NAME_ENGINE, WS_CMD_WRITE, FC.ENGINE_STATE_STOP])
     }
     
     /**
@@ -69,9 +65,9 @@ class FreqConverter: WsDefaultProtocol, IFreqConverter{
      */
     func setFreq(value: Int){
         typealias FC = FreqConverter
-        send(data: [FC.OBJ_NAME_FREQ, FC.CMD_WRITE, UInt8((value >> 8) & 0xFF), UInt8((value) & 0xFF)])
+        let val = value * 10
+        send(data: [FC.OBJ_NAME_FREQ, WS_CMD_WRITE, UInt8((val >> 8) & 0xFF), UInt8((val) & 0xFF)])
     }
-    
     
 }
 

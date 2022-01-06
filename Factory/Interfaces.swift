@@ -1,6 +1,6 @@
 /*
 amikodev/factory-ios - Industrial equipment management with iOS mobile application
-Copyright © 2021 Prihodko Dmitriy - asketcnc@yandex.ru
+Copyright © 2021-2022 Prihodko Dmitriy - asketcnc@yandex.ru
 */
 
 /*
@@ -62,6 +62,10 @@ protocol IEquipmentDevice{
 
 }
 
+protocol ISubEquipmentDevice: IEquipmentDevice{
+    
+}
+
 class UIEquipmentDeviceViewController: UIViewController{
 
     @IBOutlet weak var ConnectionStatusView: UIView!
@@ -86,6 +90,16 @@ class UIEquipmentDeviceViewController: UIViewController{
                 self._equipmentDict = equipmentDict
             }
             self.navigationItem.title = equipmentDict["caption"] as? String
+            
+            if(state.currentEquipmentDict.isSelected){
+                DispatchQueue.main.async {
+                    if(self._equipmentDict != nil){
+                        store.dispatch(CurrentEquipmentAction.change(dict: self._equipmentDict!))
+
+                    }
+
+                }
+            }
         }
 
     }
@@ -95,8 +109,6 @@ class UIEquipmentDeviceViewController: UIViewController{
 
         // stop listeners
         
-        store.dispatch(CurrentEquipmentAction.change(dict: _equipmentDict!))
-        
         stream?.cancel()
         
     }
@@ -105,6 +117,15 @@ class UIEquipmentDeviceViewController: UIViewController{
         connection?.onSuccessConnect {
             DispatchQueue.main.async {
                 self.ConnectionStatusView.backgroundColor = .systemGreen
+            }
+        }
+        
+        connection?.onReceive { data in
+            let arr: [UInt8] = [UInt8].init(data)
+            print("receive data: ", arr)
+            DispatchQueue.main.async {
+                store.dispatch(DeviceDataAction.receive(data: arr))
+                store.dispatch(DeviceDataAction.receive(data: []))
             }
         }
     }
@@ -157,9 +178,11 @@ class WsDefaultProtocol: IEquipmentDevice{
     var _connection: IConnection?
     
     init(url: String){
-
         _connection = WebSocketConnection(url: url)
-
+    }
+    
+    init(connection: IConnection?){
+        _connection = connection
     }
 
     func prepareData(preData: [UInt8]) -> [UInt8]{
@@ -173,10 +196,26 @@ class WsDefaultProtocol: IEquipmentDevice{
         return arr
     }
     
+    func prepareData(text: String, count: Int) -> [UInt8]{
+
+        var arr: [UInt8] = [UInt8](text.utf8)
+        if(arr.count > count){
+            arr = arr.dropLast(arr.count-count)
+        } else if(arr.count < count){
+            arr += [UInt8](repeating: 0x00, count: (count-arr.count))
+        }
+
+        return arr;
+    }
+    
     func send(data: [UInt8]){
         _connection?.send(data: Data(prepareData(preData: data)))
     }
     
+    func sendRaw(data: [UInt8]){
+        _connection?.send(data: Data(data))
+    }
+        
 }
 
 
